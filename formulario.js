@@ -1,5 +1,6 @@
 var formulario = document.querySelector(".formulario")
 
+//Recibir informacion ingresada por el usuario
 formulario.onsubmit = function(e) {
   
   e.preventDefault(); 
@@ -12,7 +13,8 @@ formulario.onsubmit = function(e) {
 
   var i = na.selectedIndex
   var nacionalidad = na.options[i].value
-  console.log(nombre, edad)
+  console.log(nombre)
+  console.log(edad)
   console.log(nacionalidad)
 
   if (nombre.length === 0) {
@@ -29,13 +31,14 @@ if (nombre.length > 0
   }
 }
 
-var botonBorrar = document.createElement("button")
+/* var botonBorrar = document.createElement("button")
 botonBorrar.textContent = "Eliminar invitado"
 botonBorrar.id = "boton-borrar"
 var corteLinea = document.createElement("br")
 document.body.appendChild(corteLinea)
-document.body.appendChild(botonBorrar);
+document.body.appendChild(botonBorrar); */
 
+//Agregar un Invitado a la lista
 function agregarInvitado(nombre, edad, nacionalidad) {
 
   if (nacionalidad === "ar") {
@@ -51,20 +54,22 @@ function agregarInvitado(nombre, edad, nacionalidad) {
     nacionalidad = "Peruana"
   }
 
-var lista = document.getElementById("lista-de-invitados")
+
+var lista = document.getElementById("lista-de-invitados") //Conexion entre el js y el html para enviar informacion
 
 var elementoLista = document.createElement("div")
-elementoLista.classList.added("elemento-lista")
+elementoLista.classList.add("elemento-lista") // No es added es add.Agregando clase al div creado previamente.
 lista.appendChild(elementoLista)
 
-var spanNombre = document.createElement("span")
+//Este codigo no es necesario.
+/* var spanNombre = document.createElement("span")
 var inputNombre = document.createElement("input")
 var espacio = document.createElement("br")
 spanNombre.textContent = "Nombre: "
 inputNombre.value = nombre 
 elementoLista.appendChild(spanNombre)
 elementoLista.appendChild(inputNombre)
-elementoLista.appendChild(espacio)
+elementoLista.appendChild(espacio) */
 
 function crearElemento(descripcion, valor) {
 var spanNombre = document.createElement("span")
@@ -93,4 +98,4 @@ elementoLista.appendChild(botonBorrar);
 // this.parentNode.style.display = 'none';
 botonBorrar.parentNode.remove()
   }
-}
+} 
